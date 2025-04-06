@@ -1,0 +1,66 @@
+##
+#airport_lookup.py
+#give user name of airport based on 3 letter code entered
+#author
+#date
+
+
+
+#Define a dictionary of the top 20 busiest airports in the world 
+airports = {"ATL":"Hartsfield–Jackson Atlanta International Airport",
+      "PEK":"Beijing Capital International Airport",
+			"DXB":"Dubai International Airport",
+			"LAX":"Los Angeles International Airport",
+			"HND":"Tokyo Haneda Airport",
+			"ORD":"O'Hare International Airport",
+			"LHR":"London Heathrow Airport",
+			"SAR":"Hong Kong International Airport",
+			"PVG":"Shanghai Pudong International Airport",
+			"CDG":"Paris-Charles de Gaulle Airport",
+			"AMS":"Amsterdam Airport Schiphol",
+			"DEL":"Indira Gandhi International Airport",
+			"CAN":"Guangzhou Baiyun International Airport",
+			"FRA":"Frankfurt Airport",
+			"DFW":"Dallas/Fort Worth International Airport",
+			"ICN":"Seoul Incheon International Airport",
+			"IST":"Istanbul Atatürk Airport",			
+			"CGK":"Soekarno-Hatta International Airport",
+			"SIN":"Singapore Changi Airport",
+			"DEN":"Denver International Airport",
+			}
+			
+code = input("Enter a 3-letter airport code:").upper()			
+
+#Apply a legnth check on the airport code to only accept 3 letter codes.
+while len(code)!=3:
+  print("Invalid airport code.")
+  code = input("Enter a 3-letter airport code:").upper()			
+  
+#Apply a lookup check to ensure the code is recognised (part of the dictionary)
+while not code in airports:
+  print("Airport code not recognised. Please try again with a different airport code.")
+  code = input("Enter a 3-letter airport code:").upper()			
+
+#Output  
+print(airports[code])
+
+#Define a dictionary of twleve main international airlines with codes
+airlines = {"AA":"American Airlines", "AC": "Air Canada", "AF":"Air France",
+            "AI":"Air India", "BA":"British Airways","DL":"Delta Airlines",
+            "CA":"Air China","JL":"Japan Airlines","MS":"Egypt Air","QF":"Qantas Airways",
+            "SQ":"Singapore Airlines", "UA":"United Airlines"}
+
+airline_code = input("Enter a 2-letter airline code:")
+
+#Apply a legnth check on the airline code to only accept 2 letter codes.
+while len(airline_code) != 2:
+  print("Invalid airline code.")
+  airline_code = input("Enter a 2-letter airport code:").upper()
+
+#Apply a lookup check to ensure the code is recognised (part of the dictionary)
+while not airline_code in airlines:
+  print("Airline not recognised. Please try again with a different airline code")
+  airline_code = input("Enter a 2-letter airline code:").upper()
+
+#Output
+print(airlines[airline_code])  
