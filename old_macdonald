@@ -1,0 +1,84 @@
+##
+# random module
+import random
+
+
+def print_verse():
+    """Chooses random animal from lists & prints"""
+    choice = random.randint(0, len(animals)-1)
+
+    # checks song hasn't played yet and get new animal
+    while played[choice]:
+        choice = random.randint(0, len(animals)-1) # else get diff animal
+
+    played[choice] = True # mark animal as played
+
+    # output verse with random animal & sound
+    print("""Old MacDonald had a farm. E-I-E-I-O.
+            And on that farm he had a {0}. E-I-E-I-O.
+            With a {1} {1} here.
+            And a {1} {1} there.
+            Here a {1}.
+            There a {1}.
+            Everywhere a {1} {1}.
+            Old MacDonald had a farm. E-I-E-I-O.""".format(animals[choice], sounds[choice]))
+
+def print_song():
+    """Prints out the verse until all animals are done"""
+
+    # loop to print until no more animals in list
+    for verse in range(len(animals)):
+        print_verse()
+
+    # reset played list
+    for index in range(len(animals)):
+        played[index] = False
+
+def input_animal():
+    """Asks user for animal and their sound
+    Adds these to list"""
+
+    # ask user for animal
+    animal = input("Enter an animal: ")
+    
+    # ask user for sound
+    sound = input("Enter an animal sound: ")
+
+    #store animal and sound in lists
+    animals.append(animal)
+    sounds.append(sound)
+    played.append(False) # need to append to played list
+
+        
+# main routine
+if __name__ == "__main__":
+    animals = []
+    sounds = []
+    played = [] # checks song hasn't been played
+
+    for animal in range(len(animals)):
+        played.append(False)
+        
+    #add menu functionality
+
+    again = True
+    
+    while again:
+    
+        print("(A)nimal\n" + "(P)rint song \n" + "(Q)uit")
+        choice = input("Enter choice: ")
+
+        if choice == 'A':
+            input_animal()
+
+        elif choice == 'P':
+            print_song()
+
+        elif choice == 'Q':
+            again = False
+        
+
+
+
+
+    
